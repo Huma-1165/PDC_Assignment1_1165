@@ -20,3 +20,18 @@ long long parallelSumDynamic(int arr[]) {
 
     return sum;
 }
+int main() {
+    int arr[N];
+    srand(time(0));
+    initializeArray(arr);
+
+    // Parallel Execution with Dynamic Scheduling
+    double start = omp_get_wtime();
+    long long dynamicSum = parallelSumDynamic(arr);
+    double end = omp_get_wtime();
+
+    printf("Parallel Sum (Dynamic Scheduling): %lld\n", dynamicSum);
+    printf("Dynamic Scheduling Execution Time: %f seconds\n", end - start);
+
+    return 0;
+}
